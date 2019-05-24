@@ -49,7 +49,7 @@ end
 def print_and_flush
   (0...FIRE_HEIGHT).each do |x|
     (0...FIRE_WIDTH).each do |y|
-      print Paint['.', RGB[@pixels[x * FIRE_WIDTH + y]]]
+      print Paint[' ', nil, RGB[@pixels[x * FIRE_WIDTH + y]]]
     end
     puts
   end
@@ -60,12 +60,13 @@ def clear_screen
 end
 
 def spread_fire(src)
-  random = (rand(3) & 3).round
-  dst = src - random + 1
+  random = rand(10).round & 3
+  dst = src - rand(3) + 1
   @pixels[dst - FIRE_WIDTH] = @pixels[src] - (random & 1)
+  # @pixels[src - FIRE_WIDTH] = @pixels[src] - 1
 end
 
-Paint.mode = 256
+Paint.mode = 0xFFFFFF
 clear_screen
 
 @pixels = []
@@ -76,7 +77,7 @@ last_line = FIRE_WIDTH * (FIRE_HEIGHT - 1)
 # 10.times do
 while true
   (1...FIRE_HEIGHT).to_a.reverse.each do |x|
-    (0..FIRE_WIDTH).each do |y|
+    (0...FIRE_WIDTH).each do |y|
       spread_fire(x * FIRE_WIDTH + y)
     end
   end
