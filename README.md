@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/marcinruszkiewicz/doomfire.svg?branch=master)](https://travis-ci.org/marcinruszkiewicz/doomfire)
 [![Gem Version](https://badge.fury.io/rb/doomfire.svg)](https://badge.fury.io/rb/doomfire)
 
 # Doomfire
