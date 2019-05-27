@@ -60,7 +60,6 @@ module Doomfire
 
     def run
       @blocking ? fire_loop : @thread = Thread.start { fire_loop }
-      clear_screen
     end
 
     def stop
@@ -83,6 +82,8 @@ module Doomfire
         clear
         print_pixels
       end
+
+      clear_screen
     end
 
     def update_pixels
