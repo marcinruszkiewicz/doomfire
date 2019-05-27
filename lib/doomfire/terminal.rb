@@ -44,6 +44,8 @@ module Doomfire
 
     FIRE_HEIGHT = 35
 
+    attr_reader :exit_requested, :pixels, :fire_width
+
     def initialize(blocking: false)
       @fire_width = Doomfire::WindowSize.new.terminal_width
       @exit_requested = false
@@ -64,7 +66,7 @@ module Doomfire
 
     def stop
       @exit_requested = true
-      @thread.join unless @blocking
+      @thread&.join unless @blocking
     end
 
     private

@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/doomfire.svg)](https://badge.fury.io/rb/doomfire)
+
 # Doomfire
 
 Put your terminal on fire.
