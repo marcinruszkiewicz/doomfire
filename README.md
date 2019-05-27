@@ -1,8 +1,12 @@
 # Doomfire
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/doomfire`. To experiment with that code, run `bin/console` for an interactive prompt.
+Put your terminal on fire.
 
-TODO: Delete this and the text above, and describe your gem
+![doomfire gif](https://gfycat.com/pl/blindancienthammerheadbird)
+
+This gem implements the Doom fire algorithm in Ruby, because why not, and outputs it into the terminal. Right now it requires the terminal to be able to display 24-bit colors, so it will either not work at all or not work properly on terminals that can't do that, for example on MacOS's default `Terminal.app` - in which case you should probably install a better terminal application (like [iTerm](https://www.iterm2.com) or whatever else you like).
+
+You can check the list of terminals supporting 24-bit color [here](https://github.com/termstandard/colors).
 
 ## Installation
 
@@ -22,17 +26,30 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+First way to run this is to run it directly from the command line:
 
-## Development
+    $ doomfire
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Pressing `CTRL`-`C` will stop the program gracefully after a few extra frames.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Alternatively you can use it for amusement while running some long rake tasks - see `examples/long.rake`. In short, what you need to do is to instantiate and start the fire at the start of the task:
+
+```ruby
+fire = Doomfire::Terminal.new
+fire.run
+```
+
+And then after your task is done:
+
+```ruby
+fire.stop
+```
+
+This will run the fire in a separate thread while your rake tasks works in the main thread.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/doomfire.
+Bug reports and pull requests are welcome on GitHub at https://github.com/marcinruszkiewicz/doomfire.
 
 ## License
 

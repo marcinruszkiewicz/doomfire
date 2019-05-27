@@ -5,4 +5,4 @@ require 'rubygems'
 require 'bundler/setup'
 require 'doomfire'
 
-Doomfire::Terminal.new.run
+Doomfire::Terminal.new(blocking: true).run

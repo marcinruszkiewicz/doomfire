@@ -44,20 +44,33 @@ module Doomfire
 
     FIRE_HEIGHT = 35
 
-    def initialize
+    def initialize(blocking: false)
       @fire_width = Doomfire::WindowSize.new.terminal_width
+      @exit_requested = false
+      @counter = 0
+      @blocking = blocking
+      @thread = nil
 
       Paint.mode = 0xFFFFFF
       clear_screen
-
       initialize_pixels
 
-      @exit_requested = false
-      Kernel.trap('INT') { @exit_requested = true }
-      @counter = 0
+      Kernel.trap('INT') { @exit_requested = true } if @blocking
     end
 
     def run
+      @blocking ? fire_loop : @thread = Thread.start { fire_loop }
+      clear_screen
+    end
+
+    def stop
+      @exit_requested = true
+      @thread.join unless @blocking
+    end
+
+    private
+
+    def fire_loop
       loop do
         if @exit_requested
           stop_fire if @counter.zero?
@@ -70,11 +83,7 @@ module Doomfire
         clear
         print_pixels
       end
-
-      clear_screen
     end
-
-    private
 
     def update_pixels
       (1...FIRE_HEIGHT).to_a.reverse.each do |x|
