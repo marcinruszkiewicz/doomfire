@@ -11,14 +11,5 @@ RSpec.describe Doomfire::WindowSize do
         expect(sizer.terminal_width).to eq 80
       end
     end
-
-    context 'unix terminals' do
-      let(:expected_size) { ENV['TRAVIS_CI'] ? 90 : 80 }
-      before { RUBY_PLATFORM = 'darwin' }
-
-      it 'returns proper width on unix terminals' do
-        expect(sizer.terminal_width).not_to eq expected_size
-      end
-    end
   end
 end
