@@ -41,8 +41,6 @@ module Doomfire
       [255, 255, 255]
     ].freeze
 
-    FIRE_HEIGHT = 35
-
     attr_reader :exit_requested, :pixels, :fire_width
 
     def initialize
@@ -81,7 +79,7 @@ module Doomfire
     end
 
     def update_pixels
-      (1...FIRE_HEIGHT).to_a.reverse.each do |x|
+      (1...@fire_height).to_a.reverse.each do |x|
         (0...@fire_width).each do |y|
           spread_fire(x * @fire_width + y)
         end
@@ -90,13 +88,14 @@ module Doomfire
 
     def initialize_pixels
       @pixels = []
-      last_line = @fire_width * (FIRE_HEIGHT - 1)
+      last_line = @fire_width * (@fire_height - 1)
       @pixels.fill(0, 0...last_line)
       @pixels.fill(34, last_line..(last_line + @fire_width))
     end
 
     def prepare_output
       @fire_width = 80
+      @fire_height = 35
     end
 
     def fire_loop

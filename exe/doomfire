@@ -4,5 +4,21 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'doomfire'
+require 'optparse'
 
-Doomfire::Terminal.new.run
+options = {}
+OptionParser.new do |opts|
+  opts.banner = 'Usage: doomfire [options]'
+
+  options[:sdl] = false
+  opts.on('--sdl', 'Execute SDL version') do
+    options[:sdl] = true
+  end
+
+  opts.on('-h', '--help', 'Display this screen') do
+    puts opts
+    exit
+  end
+end.parse!
+
+options[:sdl] ? Doomfire::SDL.new.run : Doomfire::Terminal.new.run

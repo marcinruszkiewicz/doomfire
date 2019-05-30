@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    doomfire (0.2)
+    doomfire (0.3.0)
       paint
 
 GEM

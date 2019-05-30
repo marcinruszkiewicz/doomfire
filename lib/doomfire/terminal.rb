@@ -45,7 +45,7 @@ module Doomfire
     end
 
     def print_pixels
-      (0...FIRE_HEIGHT).each do |x|
+      (0...@fire_height).each do |x|
         (0...@fire_width).each do |y|
           print Paint[' ', nil, RGB[@pixels[x * @fire_width + y]]]
         end

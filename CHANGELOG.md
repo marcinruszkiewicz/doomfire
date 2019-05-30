@@ -1,3 +1,9 @@
+# 0.3.0
+
+- [ ] SDL output in progress.
+- [ ] Improve SDL performance
+- [ ] https://stackoverflow.com/questions/20753726/rendering-pixels-from-array-of-rgb-values-in-sdl-1-2/36504803#36504803
+
 # 0.2.0
 
 Terminal class now only works in the terminal and the new Spinner class should be used in the rake tasks. That should actually be a major version update to be honest but in 0.x versions I assume it's expected things can break.
