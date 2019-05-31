@@ -20,40 +20,30 @@ module Doomfire
     SDL_WINDOWPOS_CENTERED = 0x2FFF0000 | 0
     SDL_QUIT = 0x100
     SDL_KEYDOWN = 0x300
-    SDL_PIXELFORMAT_ARGB8888 = 0
+    SDL_PIXELFORMAT_ARGB8888 = 372_645_892
     SDL_TEXTUREACCESS_STATIC = 0
+    SDL_TEXTUREACCESS_STREAMING = 1
 
     SDL_Event = union [
       'Uint32 type'
     ]
 
-    SDL_Rect = struct [
-      'int x',
-      'int y',
-      'int w',
-      'int h'
-    ]
-
+    # basic SDL functions - creating windows, events etc
     extern 'int SDL_Init(Uint32 flags)'
     extern 'void* SDL_CreateWindow(const char *title, int x, int y, int w, int h, Uint32 flags)'
     extern 'void* SDL_CreateRenderer(void* window, int index, Uint32 flags)'
-    extern 'int SDL_WaitEvent(void* event)'
-    extern 'int SDL_SetRenderDrawColor(void* renderer, Uint8 r, Uint8 g, Uint8 b, Uint8 a)'
-    extern 'int SDL_RenderDrawPoint(void* renderer, int x, int y)'
+    extern 'int SDL_PollEvent(void* event)'
     extern 'int SDL_RenderClear(void* renderer)'
     extern 'void SDL_RenderPresent(void* renderer)'
-    extern 'void SDL_DestroyRenderer(void* renderer)'
-    extern 'void SDL_DestroyWindow(void* window)'
     extern 'void SDL_Quit(void)'
 
-    extern 'int SDL_UpdateTexture(void* texture, const void* rect, const void* pixels, int pitch)'
-    extern 'int SDL_RenderCopy(void* renderer, void* texture, const void* srcrect, const void* dstrect)'
+    # software-accelerated rendering
+    extern 'int SDL_SetRenderDrawColor(void* renderer, Uint8 r, Uint8 g, Uint8 b, Uint8 a)'
+    extern 'int SDL_RenderDrawPoint(void* renderer, int x, int y)'
+
+    # textures are hardware accelerated
     extern 'void* SDL_CreateTexture(void* renderer, Uint32 format, int access, int w, int h)'
-    extern 'void SDL_DestroyTexture(void* texture)'
-    extern 'void* SDL_CreateRGBSurface(Uint32 flags, int width, int height, int depth, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask)'
-    extern 'int SDL_MapRGBA(void* fmt, int r, int g, int b, int a)'
-    extern 'void* SDL_CreateTextureFromSurface(void* renderer, void* surface)'
-    extern 'int SDL_LockSurface(void* surface);'
-    extern 'void SDL_UnlockSurface(void* surface);'
+    extern 'int SDL_RenderCopy(void* renderer, void* texture, const void* srcrect, const void* dstrect)'
+    extern 'int SDL_UpdateTexture(void* texture, const void* rect, const void* pixels, int pitch)'
   end
 end

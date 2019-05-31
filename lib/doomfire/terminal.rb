@@ -19,7 +19,7 @@ module Doomfire
       loop do
         if @exit_requested
           stop_fire if @counter.zero?
-          break if @counter == FIRE_HEIGHT
+          break if @counter == @fire_height
 
           @counter += 1
         end
@@ -33,6 +33,7 @@ module Doomfire
     end
 
     def prepare_output
+      @fire_height = 35
       @fire_width = Doomfire::WindowSize.new.terminal_width
       Paint.mode = 0xFFFFFF
       Kernel.trap('INT') { @exit_requested = true }

@@ -16,6 +16,7 @@ module Doomfire
     private
 
     def prepare_output
+      @fire_height = 35
       @fire_width = Doomfire::WindowSize.new.terminal_width
       Paint.mode = 0xFFFFFF
       clear_screen
