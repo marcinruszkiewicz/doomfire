@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry'
-
 module Doomfire
   # Output to a separate SDL window
   class SDL < Base
@@ -89,14 +87,14 @@ module Doomfire
     end
 
     def prepare_output
-      @fire_width = 640
-      @fire_height = 480
+      @fire_width = 320
+      @fire_height = 240
 
       FFI_SDL.SDL_Init(FFI_SDL::SDL_INIT_VIDEO)
       @window = FFI_SDL.SDL_CreateWindow(
         'Doomfire.rb',
-        FFI_SDL::SDL_WINDOWPOS_UNDEFINED,
-        FFI_SDL::SDL_WINDOWPOS_UNDEFINED,
+        FFI_SDL::SDL_WINDOWPOS_CENTERED,
+        FFI_SDL::SDL_WINDOWPOS_CENTERED,
         @fire_width,
         @fire_height,
         FFI_SDL::SDL_WINDOW_OPENGL

@@ -55,6 +55,20 @@ end
 
 This will run the fire in a separate thread while your rake tasks works in the main thread, and at the end of the task it will gracefully extinguish the fire and clear the terminal.
 
+## SDL
+
+Now with actual pixel manipulation! You can set the output to use the SDL2 library, which will put the output in a graphical window. It's a bit restricted right now to a small window and sometimes blows up, so I consider it a bit of an experiment.
+
+You need [libSDL2](http://www.libsdl.org/download-2.0.php) installed on your system (most likely through Homebrew, apt or whatever your system uses). The doomfire executable script will complain if you don't have it.
+
+    $ brew install sdl2
+
+Then you can run the executable:
+
+    $ doomfire --sdl
+
+And the output should be shown in a separate window. Closing the window will end the program after a few seconds of the ending animation.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/marcinruszkiewicz/doomfire.

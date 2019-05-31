@@ -1,8 +1,14 @@
+# 0.3.1
+
+- [x] Updated documentation
+- [x] Switched SDL window to 320x240
+- [x] Don't explode if there's no libsDL2 installed
+
 # 0.3.0
 
-- [ ] SDL output in progress.
-- [ ] Improve SDL performance
-- [ ] https://stackoverflow.com/questions/20753726/rendering-pixels-from-array-of-rgb-values-in-sdl-1-2/36504803#36504803
+- [x] SDL output in progress.
+- [x] Improve SDL performance
+- [x] Fixed accidental bug breaking terminal/spinner output
 
 # 0.2.0
 

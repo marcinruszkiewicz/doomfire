@@ -21,4 +21,14 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-options[:sdl] ? Doomfire::SDL.new.run : Doomfire::Terminal.new.run
+if options[:sdl]
+  begin
+    require 'doomfire/ffi_sdl'
+    require 'doomfire/sdl'
+    Doomfire::SDL.new.run
+  rescue Fiddle::DLError
+    puts 'You need to install libSDL2 to use the SDL output.'
+  end
+else
+  Doomfire::Terminal.new.run
+end
