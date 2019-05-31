@@ -69,6 +69,8 @@ Then you can run the executable:
 
 And the output should be shown in a separate window. Closing the window will end the program after a few seconds of the ending animation.
 
+![SDL example](examples/sdl.png)
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/marcinruszkiewicz/doomfire.
