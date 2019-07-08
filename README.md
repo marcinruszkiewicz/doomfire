@@ -71,6 +71,13 @@ And the output should be shown in a separate window. Closing the window will end
 
 ![SDL example](examples/sdl.png)
 
+If running on a Ruby interpreter on the JVM, you will need the `-XstartOnFirstThread` option.
+
+## Benchmarks
+
+    $ bundle exec bench/micro.rb
+    $ bundle exec bench/macro.rb
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/marcinruszkiewicz/doomfire.
