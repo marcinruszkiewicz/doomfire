@@ -5,7 +5,7 @@ RSpec.describe Doomfire::WindowSize do
 
   describe '#terminal_width' do
     context 'unknown terminal' do
-      before { RUBY_PLATFORM = 'windows' }
+      before { allow(RbConfig::CONFIG).to receive(:[]).with('host_os').and_return('windows') }
 
       it 'returns 80 on unknown terminals' do
         expect(sizer.terminal_width).to eq 80

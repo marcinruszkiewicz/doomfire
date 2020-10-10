@@ -3,7 +3,7 @@
 RSpec.describe Doomfire::Terminal do
   let!(:terminal) { Doomfire::Terminal.new }
 
-  before { RUBY_PLATFORM = 'windows' }
+  before { allow(RbConfig::CONFIG).to receive(:[]).with('host_os').and_return('windows') }
 
   describe '#clear_screen' do
     let(:output) { capture(:stdout) { terminal.send(:clear_screen) } }

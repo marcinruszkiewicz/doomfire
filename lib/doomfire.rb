@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'doomfire/platform'
 require 'doomfire/base'
 require 'doomfire/terminal'
 require 'doomfire/spinner'

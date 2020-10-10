@@ -3,7 +3,7 @@
 module Doomfire
   class WindowSize
     def terminal_width
-      return 80 unless unix?
+      return 80 unless Platform.unix?
 
       result = dynamic_width
       result < 20 ? 80 : result
@@ -44,10 +44,6 @@ module Doomfire
 
     def dynamic_width_tput
       `tput cols 2>/dev/null`.to_i
-    end
-
-    def unix?
-      RUBY_PLATFORM =~ /(aix|darwin|linux|(net|free|open)bsd|cygwin|solaris|irix|hpux)/i
     end
   end
 end
