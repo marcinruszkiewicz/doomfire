@@ -8,7 +8,7 @@ module Doomfire
   module FFI_SDL
     extend Fiddle::Importer
 
-    dlload 'libSDL2.dylib'
+    dlload "libSDL2.#{RbConfig::CONFIG['SOEXT']}"
 
     typealias 'Uint32', :int
     typealias 'Uint16', :int
