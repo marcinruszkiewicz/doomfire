@@ -8,7 +8,7 @@ module Doomfire
   module FFI_SDL
     extend Fiddle::Importer
 
-    dlload "libSDL2.#{Platform.lib_ext}"
+    dlload Platform.find_lib('libSDL2')
 
     typealias 'Uint32', :int
     typealias 'Uint16', :int
