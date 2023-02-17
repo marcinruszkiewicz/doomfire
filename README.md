@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/marcinruszkiewicz/doomfire.svg?branch=master)](https://travis-ci.com/marcinruszkiewicz/doomfire)
+![Build Status](https://github.com/marcinruszkiewicz/doomfire/actions/workflows/rspec.yml/badge.svg)
 [![Gem Version](https://badge.fury.io/rb/doomfire.svg)](https://badge.fury.io/rb/doomfire)
 
 # Doomfire
